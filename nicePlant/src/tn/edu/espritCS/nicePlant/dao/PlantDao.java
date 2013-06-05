@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import tn.edu.espritCS.nicePlant.Technical.UtilJdbc;
-import tn.edu.espritCS.nicePlant.domain.Farmer;
 import tn.edu.espritCS.nicePlant.domain.Plant;
 
 public class PlantDao {
