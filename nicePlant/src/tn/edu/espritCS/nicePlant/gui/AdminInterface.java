@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 
+import tn.edu.espritCS.nicePlant.services.ListFarmerService;
+
 public class AdminInterface extends JFrame {
 
 	private JPanel contentPane;
@@ -90,10 +92,25 @@ public class AdminInterface extends JFrame {
 		mnFarmer.add(mntmNewFarmer);
 		
 		JMenuItem mntmListFarmer = new JMenuItem("List Farmer");
+		mntmListFarmer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListFarmer listFarmer=new ListFarmer();
+				listFarmer.setVisible(true);
+				}
+		});
 		mnFarmer.add(mntmListFarmer);
 
 		JMenu mnMalday = new JMenu("Malday");
 		menuBar.add(mnMalday);
+		
+		JMenuItem mntmNewMalady = new JMenuItem("New Malady");
+		mntmNewMalady.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewMalady newMalady=new NewMalady();
+				newMalady.setVisible(true);
+			}
+		});
+		mnMalday.add(mntmNewMalady);
 
 		JMenu mnEvent = new JMenu("Event");
 		menuBar.add(mnEvent);

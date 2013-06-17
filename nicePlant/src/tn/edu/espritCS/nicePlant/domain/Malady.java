@@ -20,6 +20,16 @@ public class Malady {
 		this.fleur = fleur;
 	}
 
+	public Malady(int id_malady, String name_mal, String tige, String feuille,
+			String fleur) {
+		super();
+		this.id_malady = id_malady;
+		this.name_mal = name_mal;
+		this.tige = tige;
+		this.feuille = feuille;
+		this.fleur = fleur;
+	}
+
 	public int getId_malady() {
 		return id_malady;
 	}

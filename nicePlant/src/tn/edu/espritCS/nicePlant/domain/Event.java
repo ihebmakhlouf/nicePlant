@@ -5,6 +5,13 @@ private int id_evt;
 private String name_evt;
 private String periode;
 
+public Event(String name_evt, String periode, int id_evt) {
+	super();
+	this.name_evt = name_evt;
+	this.periode = periode;
+	this.id_evt = id_evt;
+}
+
 public Event() {
 
 }

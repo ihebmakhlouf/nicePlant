@@ -23,6 +23,16 @@ public class Farmer {
 		this.mail = mail;
 	}
 
+	public Farmer(String firstName, String lastName, String login, String mail,
+			int id_farmer) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.login = login;
+		this.mail = mail;
+		this.id_farmer = id_farmer;
+	}
+
 	public int getId_farmer() {
 		return id_farmer;
 	}

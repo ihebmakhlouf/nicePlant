@@ -9,17 +9,20 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+import tn.edu.espritCS.nicePlant.dao.PlantDao;
 import tn.edu.espritCS.nicePlant.domain.Plant;
 import tn.edu.espritCS.nicePlant.services.ListePlantService;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ModifyPlant extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField nom;
 
 	/**
 	 * Launch the application.
@@ -52,26 +55,35 @@ public class ModifyPlant extends JFrame {
 		lblNewLabel.setBounds(10, 31, 104, 26);
 		contentPane.add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(106, 33, 104, 23);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		nom = new JTextField();
+		nom.setBounds(106, 33, 104, 23);
+		contentPane.add(nom);
+		nom.setColumns(10);
 		
 		JLabel lblSaison = new JLabel("Saison");
 		lblSaison.setBounds(10, 81, 46, 14);
 		contentPane.add(lblSaison);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Summer", "Winter"}));
-		comboBox.setBounds(106, 68, 104, 27);
-		contentPane.add(comboBox);
+		final JComboBox sai = new JComboBox();
+		sai.setModel(new DefaultComboBoxModel(new String[] {"Summer", "Winter"}));
+		sai.setBounds(106, 68, 104, 27);
+		contentPane.add(sai);
 		
 		JButton btnModify = new JButton("Modify");
+		btnModify.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String s = (String) sai.getSelectedItem();
+				Plant plant = new Plant(nom.getText(), s);
+				PlantDao plantDao=new PlantDao();
+				plantDao.updatePlant(plant);
+				
+			}
+		});
 		btnModify.setBounds(83, 153, 89, 23);
 		contentPane.add(btnModify);
 		ListePlantService listePlantService=new ListePlantService();
 		Plant plant=listePlantService.getRow(ListPlant.dah);
-		textField.setText(plant.getName());
+		nom.setText(plant.getName());
 	
 	}
 }
