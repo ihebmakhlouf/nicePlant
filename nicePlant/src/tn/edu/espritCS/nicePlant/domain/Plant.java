@@ -16,6 +16,14 @@ public class Plant {
 		this.saison = saison;
 	}
 
+
+	public Plant( String name, String saison,int id_plant) {
+		super();
+		this.id_plant = id_plant;
+		this.name = name;
+		this.saison = saison;
+	}
+
 	public int getId_plant() {
 		return id_plant;
 	}
