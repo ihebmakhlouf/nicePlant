@@ -17,6 +17,7 @@ import tn.edu.espritCS.nicePlant.domain.Malady;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
 
 public class NewMalady extends JFrame {
 
@@ -54,50 +55,59 @@ public class NewMalady extends JFrame {
 		contentPane.setLayout(null);
 		
 		name = new JTextField();
-		name.setBounds(110, 48, 86, 20);
+		name.setBounds(110, 26, 86, 20);
 		contentPane.add(name);
 		name.setColumns(10);
 		
 		JLabel lblNameMalady = new JLabel("Name Malady");
-		lblNameMalady.setBounds(10, 51, 90, 14);
+		lblNameMalady.setBounds(10, 29, 90, 14);
 		contentPane.add(lblNameMalady);
 		
 		tige = new JTextField();
-		tige.setBounds(110, 86, 86, 20);
+		tige.setBounds(110, 51, 86, 20);
 		contentPane.add(tige);
 		tige.setColumns(10);
 		
 		JLabel lblColorOfTige = new JLabel("Color Tige");
-		lblColorOfTige.setBounds(10, 89, 72, 14);
+		lblColorOfTige.setBounds(10, 54, 72, 14);
 		contentPane.add(lblColorOfTige);
 		
 		JLabel lblDescriptionFeuille = new JLabel("Description feuille");
-		lblDescriptionFeuille.setBounds(10, 124, 84, 14);
+		lblDescriptionFeuille.setBounds(10, 79, 84, 14);
 		contentPane.add(lblDescriptionFeuille);
 		
 		feuille = new JTextField();
-		feuille.setBounds(110, 121, 86, 20);
+		feuille.setBounds(110, 76, 86, 20);
 		contentPane.add(feuille);
 		feuille.setColumns(10);
 		
 		JLabel lblDescriptionOfFleur = new JLabel("Description flower");
-		lblDescriptionOfFleur.setBounds(10, 158, 90, 14);
+		lblDescriptionOfFleur.setBounds(10, 105, 90, 14);
 		contentPane.add(lblDescriptionOfFleur);
 		
 		fleur = new JTextField();
-		fleur.setBounds(110, 152, 86, 20);
+		fleur.setBounds(110, 102, 86, 20);
 		contentPane.add(fleur);
 		fleur.setColumns(10);
+		final JTextArea solution = new JTextArea();
+		solution.setBounds(10, 152, 248, 42);
+		contentPane.add(solution);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Malady malady=new Malady(name.getText(),tige.getText(),feuille.getText(),fleur.getText());
+				Malady malady=new Malady(name.getText(),tige.getText(),feuille.getText(),fleur.getText(),solution.getText());
 				MaladyDao maladyDao=new MaladyDao();
 				maladyDao.addMalady(malady);
 			}
 		});
 		btnAdd.setBounds(43, 204, 89, 23);
 		contentPane.add(btnAdd);
+		
+		
+		
+		JLabel lblSolution = new JLabel("Solution");
+		lblSolution.setBounds(10, 127, 46, 14);
+		contentPane.add(lblSolution);
 	}
 }

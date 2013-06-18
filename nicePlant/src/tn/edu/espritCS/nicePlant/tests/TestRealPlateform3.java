@@ -19,7 +19,7 @@ public class TestRealPlateform3 {
 
 	@Test
 	public void testAddEvent() {
-		Event event = new Event("harvesting", "du 15 juin à 15 Octobre");
+		Event event = new Event("harvesting1");
 		Assert.assertTrue(eventDao.addEvent(event));
 	}
 
@@ -32,8 +32,7 @@ public class TestRealPlateform3 {
 	@Test
 	public void testUpdateEvent() {
 		Event event = eventDao.findEventById(1);
-		event.setName_evt("harvesting");
-		event.setPeriode("14 juin à 15 octobre");
+		event.setName_evt("harvesting12");
 
 		Assert.assertTrue(eventDao.updateEvent(event));
 	}
@@ -41,6 +40,6 @@ public class TestRealPlateform3 {
 	@Test
 	public void testDeleteMalady() {
 
-		Assert.assertTrue(eventDao.deleteEvent(3));
+		Assert.assertTrue(eventDao.deleteEvent(12));
 	}
 }

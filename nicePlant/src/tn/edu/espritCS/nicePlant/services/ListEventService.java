@@ -20,8 +20,8 @@ public class ListEventService {
 			ResultSet resultSet = statement.executeQuery(sql);
 			while (resultSet.next()) {
 				Event event = new Event(resultSet.getString("event_name"),
-						resultSet.getString("periode"),
-						resultSet.getInt("id_event"));
+
+				resultSet.getInt("id_event"));
 				arrayList.add(event);
 
 			}
@@ -41,7 +41,6 @@ public class ListEventService {
 			ResultSet resultSet = statement.executeQuery(sql);
 			while (resultSet.next()) {
 				event = new Event(resultSet.getString("event_name"),
-						resultSet.getString("periode"),
 						resultSet.getInt("id_event"));
 			}
 		} catch (SQLException e) {

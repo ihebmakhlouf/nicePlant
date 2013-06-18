@@ -25,6 +25,7 @@ public class ListPlant extends JFrame {
 	private ArrayList<Plant> arraylist;
 	private JTable table_1;
 	public static int dah;
+	public static String pname;
 	/**
 	 * Launch the application.
 	 */
@@ -75,7 +76,7 @@ public class ListPlant extends JFrame {
 
 			}
 		});
-		btnDelete.setBounds(266, 192, 89, 23);
+		btnDelete.setBounds(335, 180, 89, 23);
 		contentPane.add(btnDelete);
 		
 		JButton btnModify = new JButton("Modify");
@@ -83,14 +84,45 @@ public class ListPlant extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Plant plant = (Plant) table_1.getValueAt(table_1.getSelectedRow(),
 						3);
+				
 				dah=plant.getId_plant();
 		   ModifyPlant modifyplant=new ModifyPlant();
 		   modifyplant.setVisible(true);
 				
 			}
 		});
-		btnModify.setBounds(126, 192, 89, 23);
+		btnModify.setBounds(244, 180, 89, 23);
 		contentPane.add(btnModify);
+		
+		JButton btnAffectMalady = new JButton("affect Malady");
+		btnAffectMalady.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				Plant plant = (Plant) table_1.getValueAt(table_1.getSelectedRow(),
+						3);
+				pname=plant.getName();
+				dah=plant.getId_plant();
+				AffecterMalady affecterMalady=new AffecterMalady();
+				affecterMalady.setVisible(true);
+				
+			}
+		});
+		btnAffectMalady.setBounds(0, 180, 120, 23);
+		contentPane.add(btnAffectMalady);
+		
+		JButton btnAffectEvent = new JButton("Affect Event");
+		btnAffectEvent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Plant plant = (Plant) table_1.getValueAt(table_1.getSelectedRow(),
+						3);
+				pname=plant.getName();
+				dah=plant.getId_plant();
+				AffectEvent affectEvent=new AffectEvent();
+				affectEvent.setVisible(true);
+			}
+		});
+		btnAffectEvent.setBounds(130, 180, 104, 23);
+		contentPane.add(btnAffectEvent);
 		liste_Plant();
 	}
 

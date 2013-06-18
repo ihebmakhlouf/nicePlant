@@ -7,26 +7,30 @@ public class Malady {
 	private String tige;
 	private String feuille;
 	private String fleur;
+	private String solution;
 
 	public Malady() {
 
 	}
 
-	public Malady(String name_mal, String tige, String feuille, String fleur) {
+	public Malady(String name_mal, String tige, String feuille, String fleur,
+			String solution) {
 		super();
 		this.name_mal = name_mal;
 		this.tige = tige;
 		this.feuille = feuille;
 		this.fleur = fleur;
+		this.solution = solution;
 	}
 
 	public Malady(int id_malady, String name_mal, String tige, String feuille,
-			String fleur) {
+			String fleur, String solution) {
 		super();
 		this.id_malady = id_malady;
 		this.name_mal = name_mal;
 		this.tige = tige;
 		this.feuille = feuille;
+		this.solution = solution;
 		this.fleur = fleur;
 	}
 
@@ -68,6 +72,14 @@ public class Malady {
 
 	public void setFleur(String fleur) {
 		this.fleur = fleur;
+	}
+
+	public String getSolution() {
+		return solution;
+	}
+
+	public void setSolution(String solution) {
+		this.solution = solution;
 	}
 
 }

@@ -9,14 +9,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
+import tn.edu.espritCS.nicePlant.dao.EventDao;
+import tn.edu.espritCS.nicePlant.domain.Event;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class NewEvent extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_2;
+	private JTextField name;
 
 	/**
 	 * Launch the application.
@@ -49,26 +52,20 @@ public class NewEvent extends JFrame {
 		lblEventName.setBounds(21, 46, 88, 14);
 		contentPane.add(lblEventName);
 		
-		JLabel lblDu = new JLabel("period");
-		lblDu.setBounds(21, 84, 46, 14);
-		contentPane.add(lblDu);
-		
-		textField = new JTextField();
-		textField.setBounds(119, 81, 86, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(119, 43, 86, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		name = new JTextField();
+		name.setBounds(119, 43, 86, 20);
+		contentPane.add(name);
+		name.setColumns(10);
 		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Event event=new Event(name.getText());
+				EventDao eventDao=new EventDao();
+				eventDao.addEvent(event);
 			}
 		});
-		btnAdd.setBounds(35, 157, 89, 23);
+		btnAdd.setBounds(68, 104, 89, 23);
 		contentPane.add(btnAdd);
 	}
 

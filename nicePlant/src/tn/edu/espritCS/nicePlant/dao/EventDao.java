@@ -14,9 +14,8 @@ public class EventDao {
 		boolean b = false;
 		try {
 			Statement statement = utilJdbc.nouveauconnexion().createStatement();
-			String sql = "insert into event(event_name,periode)values('"
-					+ event.getName_evt() + "'" + ",'" + event.getPeriode()
-					+ "')";
+			String sql = "insert into event(event_name)values('"
+					+ event.getName_evt() + "')";
 			statement.executeUpdate(sql);
 			b = true;
 		} catch (SQLException e) {
@@ -37,7 +36,7 @@ public class EventDao {
 			while (resultSet.next()) {
 				evenTmp.setId_evt(resultSet.getInt("id_event"));
 				evenTmp.setName_evt(resultSet.getString("event_name"));
-				evenTmp.setPeriode(resultSet.getString("periode"));
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -52,8 +51,9 @@ public class EventDao {
 			Statement statement = utilJdbc.nouveauconnexion().createStatement();
 
 			String sql = "update event set event_name='" + event.getName_evt()
-					+ "'" + ",periode='" + event.getPeriode()
-					+ "' where id_event=" + event.getId_evt();
+					+ "'" 
+					+ " where id_event=" + event.getId_evt();
+			System.out.println(sql);
 			statement.executeUpdate(sql);
 			b = true;
 		} catch (SQLException e) {

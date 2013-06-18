@@ -20,7 +20,7 @@ public class TestRealPlateform2 {
 	@Test
 	public void testAddMalady() {
 		Malady malady = new Malady("Chlorose", "Normal", "tache jaune",
-				"Normal");
+				"Normal","alo");
 		Assert.assertTrue(maladyDao.addMalady(malady));
 	}
 
@@ -33,24 +33,25 @@ public class TestRealPlateform2 {
 
 	@Test
 	public void testFindFarmerById() {
-		Malady malady = maladyDao.findMaladyById(1);
+		Malady malady = maladyDao.findMaladyById(14);
 		Assert.assertEquals("Chlorose", malady.getName_mal());
 	}
 
 	@Test
 	public void testUpdateMalady() {
-		Malady malady = maladyDao.findMaladyById(1);
+		Malady malady = maladyDao.findMaladyById(14);
 		malady.setName_mal("Chlorose");
 		malady.setTige("Normal");
 		malady.setFeuille("taches jaunes");
 		malady.setFleur("Normal");
+		malady.setSolution("alo12");
 		Assert.assertTrue(maladyDao.updateMalady(malady));
 	}
 
 	@Test
 	public void testDeleteMalady() {
 
-		Assert.assertTrue(maladyDao.deleteMalady(3));
+		Assert.assertTrue(maladyDao.deleteMalady(15));
 	}
 
 }

@@ -23,7 +23,8 @@ public class ListMaladyService {
 						resultSet.getString("name_maladie"),
 						resultSet.getString("tige_color"),
 						resultSet.getString("feuille"),
-						resultSet.getString("fleur"));
+						resultSet.getString("fleur"),
+						resultSet.getString("solution"));
 				arrayList.add(malady);
 
 			}
@@ -46,7 +47,8 @@ public class ListMaladyService {
 						resultSet.getString("name_maladie"),
 						resultSet.getString("tige_color"),
 						resultSet.getString("feuille"),
-						resultSet.getString("fleur"));
+						resultSet.getString("fleur"),
+						resultSet.getString("solution"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

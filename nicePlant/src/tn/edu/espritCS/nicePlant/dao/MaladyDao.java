@@ -15,17 +15,22 @@ public class MaladyDao {
 		boolean b = false;
 		try {
 			Statement statement = utilJdbc.nouveauconnexion().createStatement();
-			String sql = "insert into maladie(name_maladie,tige_color,feuille,fleur)values("
+			String sql = "insert into maladie(name_maladie,tige_color,feuille,fleur,solution)values("
 					+ "'"
 					+ malady.getName_mal()
 					+ "','"
+
 					+ malady.getTige()
 					+ "'"
 					+ ",'"
 					+ malady.getFeuille()
 					+ "','"
-					+ malady.getFleur() + "')";
+					+ malady.getFleur()
+					+ "','"
+					+ malady.getSolution()
+					+ "')";
 			statement.executeUpdate(sql);
+
 			b = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -85,9 +90,11 @@ public class MaladyDao {
 		try {
 			Statement statement = utilJdbc.nouveauconnexion().createStatement();
 			String sql = "update maladie set name_maladie='"
-					+ malady.getName_mal() + "'" + ",tige_color='" + malady.getTige()
-					+ "',feuille='" + malady.getFeuille() + "',fleur='" + malady.getFleur()
-					+ "' where id_maladie="+malady.getId_malady();
+					+ malady.getName_mal() + "'" + ",tige_color='"
+					+ malady.getTige() + "',feuille='" + malady.getFeuille()
+					+ "',fleur='" + malady.getFleur() + "',solution='"
+					+ malady.getSolution() + "' where id_maladie="
+					+ malady.getId_malady();
 			statement.execute(sql);
 			b = true;
 		} catch (SQLException e) {
@@ -98,17 +105,17 @@ public class MaladyDao {
 	}
 
 	public boolean deleteMalady(int id_malady) {
-		boolean b=false;
+		boolean b = false;
 		try {
 			Statement statement = utilJdbc.nouveauconnexion().createStatement();
-			String sql="delete from maladie where id_maladie="+id_malady;
+			String sql = "delete from maladie where id_maladie=" + id_malady;
 			statement.executeUpdate(sql);
-			b= true;
+			b = true;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return b;
 	}
 

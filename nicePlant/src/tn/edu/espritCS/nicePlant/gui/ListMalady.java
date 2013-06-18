@@ -90,9 +90,9 @@ public class ListMalady extends JFrame {
 		JButton btnModfiy = new JButton("Modfiy");
 		btnModfiy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Malady farmer = (Malady) table.getValueAt(table.getSelectedRow(),
+				Malady malady = (Malady) table.getValueAt(table.getSelectedRow(),
 						0);
-				dah=farmer.getId_malady();
+				dah=malady.getId_malady();
 		   ModifyMalady modifyMalady=new ModifyMalady();
 		   modifyMalady.setVisible(true);
 			}

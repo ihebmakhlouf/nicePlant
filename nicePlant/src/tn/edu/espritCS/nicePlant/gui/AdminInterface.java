@@ -111,8 +111,35 @@ public class AdminInterface extends JFrame {
 			}
 		});
 		mnMalday.add(mntmNewMalady);
+		
+		JMenuItem mntmListMalady = new JMenuItem("List Malady");
+		mntmListMalady.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListMalady listMalady=new ListMalady();
+				listMalady.setVisible(true);
+			}
+		});
+		mnMalday.add(mntmListMalady);
 
 		JMenu mnEvent = new JMenu("Event");
 		menuBar.add(mnEvent);
+		
+		JMenuItem mntmNewEvent = new JMenuItem("New Event");
+		mntmNewEvent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NewEvent newEvent=new NewEvent();
+				newEvent.setVisible(true);
+			}
+		});
+		mnEvent.add(mntmNewEvent);
+		
+		JMenuItem mntmListEvent = new JMenuItem("List Event");
+		mntmListEvent.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListEvent listEvent=new ListEvent();
+				listEvent.setVisible(true);
+			}
+		});
+		mnEvent.add(mntmListEvent);
 	}
 }

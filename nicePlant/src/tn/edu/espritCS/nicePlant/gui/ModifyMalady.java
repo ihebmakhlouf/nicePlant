@@ -102,6 +102,7 @@ public class ModifyMalady extends JFrame {
 	   tige.setText(malady.getTige());
 	   feuille.setText(malady.getFeuille());
 	   fleur.setText(malady.getFleur());
+	   System.out.println(ListMalady.dah);
 	}
 
 }
