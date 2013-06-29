@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import tn.edu.espritCS.nicePlant.dao.MaladyDao;
 import tn.edu.espritCS.nicePlant.domain.Farmer;
 import tn.edu.espritCS.nicePlant.domain.Malady;
 import tn.edu.espritCS.nicePlant.services.ListFarmerService;
@@ -92,6 +93,16 @@ public class ModifyMalady extends JFrame {
 		JButton btnModify = new JButton("Modify");
 		btnModify.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ListMaladyService listMaladyService=new ListMaladyService();
+				Malady malady=listMaladyService.getRow(ListMalady.dah);
+				malady.setName_mal(name.getText());
+				  malady.setTige( tige.getText());
+				  malady.setFeuille( feuille.getText());
+				   malady.setFleur(fleur.getText());
+				   MaladyDao maladyDao=new MaladyDao();
+				   maladyDao.updateMalady(malady);
+				   AdminInterface adminInterface=new AdminInterface();
+					adminInterface.setVisible(true);
 			}
 		});
 		btnModify.setBounds(10, 228, 89, 23);
@@ -102,7 +113,7 @@ public class ModifyMalady extends JFrame {
 	   tige.setText(malady.getTige());
 	   feuille.setText(malady.getFeuille());
 	   fleur.setText(malady.getFleur());
-	   System.out.println(ListMalady.dah);
+	   
 	}
 
 }

@@ -63,6 +63,8 @@ public class NewEvent extends JFrame {
 				Event event=new Event(name.getText());
 				EventDao eventDao=new EventDao();
 				eventDao.addEvent(event);
+				AdminInterface adminInterface=new AdminInterface();
+				adminInterface.setVisible(true);
 			}
 		});
 		btnAdd.setBounds(68, 104, 89, 23);

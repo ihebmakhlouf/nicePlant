@@ -78,6 +78,8 @@ public class AffecterMalady extends JFrame {
 				int id_malady = rechercheNameService.findMaladyByName(d);
 				AffectMaladyService affectMaladyService = new AffectMaladyService();
 				affectMaladyService.affectMalady(id_malady, ListPlant.dah);
+				AdminInterface adminInterface=new AdminInterface();
+				adminInterface.setVisible(true);
 			}
 		});
 		btnAffect.setBounds(33, 135, 89, 23);

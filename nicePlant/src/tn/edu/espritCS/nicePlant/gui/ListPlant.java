@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import tn.edu.espritCS.nicePlant.Technical.PieChart;
 import tn.edu.espritCS.nicePlant.dao.PlantDao;
 import tn.edu.espritCS.nicePlant.domain.Plant;
 import tn.edu.espritCS.nicePlant.services.ListePlantService;
@@ -56,18 +57,19 @@ public class ListPlant extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 180, 402, -149);
 		contentPane.add(scrollPane);
-
-		table_1 = new JTable();
-		table_1.setModel(new DefaultTableModel(new Object[][] { { null, null,
-				null, null }, }, new String[] { "objet", "id Plant",
-				"Plant Name", "Saison" }));
-		table_1.getColumnModel().getColumn(2).setPreferredWidth(90);
-
-		table_1.setBounds(10, 42, 381, 128);
-		contentPane.add(table_1);
-		table_1.getColumnModel().getColumn(3).setMinWidth(0);
-		table_1.getColumnModel().getColumn(3).setMaxWidth(0);
-		table_1.getColumnModel().getColumn(3).setWidth(0);
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(20, 27, 321, 94);
+		contentPane.add(scrollPane_1);
+		
+				table_1 = new JTable();
+				scrollPane_1.setViewportView(table_1);
+				table_1.setModel(new DefaultTableModel(new Object[][] { { null, null,
+						null, null }, }, new String[] { "objet", "id Plant",
+						"Plant Name", "Saison" }));
+				table_1.getColumnModel().getColumn(2).setPreferredWidth(90);
+				table_1.getColumnModel().getColumn(3).setMinWidth(0);
+				table_1.getColumnModel().getColumn(3).setMaxWidth(0);
+				table_1.getColumnModel().getColumn(3).setWidth(0);
 		JButton btnDelete = new JButton("Delete");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -123,6 +125,33 @@ public class ListPlant extends JFrame {
 		});
 		btnAffectEvent.setBounds(130, 180, 104, 23);
 		contentPane.add(btnAffectEvent);
+		
+		
+		scrollPane_1.setBounds(20, 71, 321, 50);
+		contentPane.add(scrollPane_1);
+		
+				table_1 = new JTable();
+				scrollPane_1.setViewportView(table_1);
+				table_1.setModel(new DefaultTableModel(new Object[][] { { null, null,
+						null, null }, }, new String[] {  "id Plant",
+						"Plant Name", "Saison","objet" }));
+				
+				JButton btnStatistics = new JButton("Statistics");
+				btnStatistics.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						Plant plant = (Plant) table_1.getValueAt(table_1.getSelectedRow(),
+								3);
+						pname=plant.getName();
+						dah=plant.getId_plant();
+						new PieChart().setVisible(true);
+					}
+				});
+				btnStatistics.setBounds(10, 211, 131, 23);
+				contentPane.add(btnStatistics);
+				table_1.getColumnModel().getColumn(2).setPreferredWidth(90);
+				table_1.getColumnModel().getColumn(3).setMinWidth(0);
+				table_1.getColumnModel().getColumn(3).setMaxWidth(0);
+				table_1.getColumnModel().getColumn(3).setWidth(0);
 		liste_Plant();
 	}
 
@@ -159,7 +188,6 @@ public class ListPlant extends JFrame {
 			PlantDao plantDao = new PlantDao();
 			plantDao.deletePlant(plant.getId_plant());
 			liste_Plant();
-			
 		}
 
 	}

@@ -72,6 +72,8 @@ public class AddPlant extends JFrame {
 				Plant plant = new Plant(nom.getText(), s);
 				PlantDao plantDao = new PlantDao();
 				plantDao.addPlant(plant);
+				AdminInterface adminInterface=new AdminInterface();
+				adminInterface.setVisible(true);
 			}
 		});
 		btnAdd.setBounds(57, 116, 89, 23);

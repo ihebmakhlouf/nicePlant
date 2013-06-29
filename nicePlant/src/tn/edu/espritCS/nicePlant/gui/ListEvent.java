@@ -23,6 +23,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class ListEvent extends JFrame {
 
@@ -57,7 +58,21 @@ public class ListEvent extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JButton btnRemove = new JButton("Remove");
+		btnRemove.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				deletePlant();
+			}
+		});
+		btnRemove.setBounds(213, 113, 89, 23);
+		contentPane.add(btnRemove);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(41, 30, 325, 59);
+		contentPane.add(scrollPane);
+		
 		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null},
@@ -69,21 +84,6 @@ public class ListEvent extends JFrame {
 		table.getColumnModel().getColumn(0).setPreferredWidth(0);
 		table.getColumnModel().getColumn(0).setMinWidth(0);
 		table.getColumnModel().getColumn(0).setMaxWidth(0);
-		table.setBounds(0, 30, 386, 119);
-		contentPane.add(table);
-		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollBar.setBounds(386, 30, 17, 119);
-		contentPane.add(scrollBar);
-		
-		JButton btnRemove = new JButton("Remove");
-		btnRemove.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				deletePlant();
-			}
-		});
-		btnRemove.setBounds(210, 176, 89, 23);
-		contentPane.add(btnRemove);
 		liste_event() ;
 	}
 	void liste_event() {

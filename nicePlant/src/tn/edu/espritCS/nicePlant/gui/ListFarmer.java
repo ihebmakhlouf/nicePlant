@@ -19,6 +19,7 @@ import tn.edu.espritCS.nicePlant.dao.FarmerDao;
 import tn.edu.espritCS.nicePlant.domain.Farmer;
 import tn.edu.espritCS.nicePlant.domain.Plant;
 import tn.edu.espritCS.nicePlant.services.ListFarmerService;
+import javax.swing.JScrollPane;
 
 public class ListFarmer extends JFrame {
 
@@ -52,18 +53,20 @@ public class ListFarmer extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		table = new JTable();
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setModel(new DefaultTableModel(new Object[][] { { null, null,
-				null, null, null }, }, new String[] { "id_farmer",
-				"first name", "last name", "login", "mail" }));
-		table.setBounds(10, 11, 402, 124);
-		table.getColumnModel().getColumn(0).setMinWidth(0);
-		table.getColumnModel().getColumn(0).setMaxWidth(0);
-		table.getColumnModel().getColumn(0).setWidth(0);
-		contentPane.add(table);
-
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(20, 22, 316, 112);
+		contentPane.add(scrollPane);
+		
+				table = new JTable();
+				scrollPane.setViewportView(table);
+				table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				table.setModel(new DefaultTableModel(new Object[][] { { null, null,
+						null, null, null }, }, new String[] { "id_farmer",
+						"first name", "last name", "login", "mail" }));
+				table.getColumnModel().getColumn(0).setMinWidth(0);
+				table.getColumnModel().getColumn(0).setMaxWidth(0);
+				table.getColumnModel().getColumn(0).setWidth(0);
+		liste_farmer();
 		JButton btnModify = new JButton("Modify");
 		btnModify.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -95,7 +98,8 @@ public class ListFarmer extends JFrame {
 		});
 		btnRemove.setBounds(183, 184, 89, 23);
 		contentPane.add(btnRemove);
-		liste_farmer();
+		
+	
 	}
 
 	void liste_farmer() {
@@ -114,7 +118,7 @@ public class ListFarmer extends JFrame {
 				file[2] = farmer.getLastName();
 				file[3] = farmer.getLogin();
 				file[4] = farmer.getMail();
-
+                
 				model.addRow(file);
 			}
 		} catch (SQLException e) {

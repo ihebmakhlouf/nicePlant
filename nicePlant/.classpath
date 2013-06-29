@@ -5,5 +5,14 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="libs/mysql-connector-java-5.0.4-bin.jar"/>
 	<classpathentry kind="lib" path="libs/JTattoo-1.6.9.jar"/>
+	<classpathentry kind="lib" path="libs/dsn.jar"/>
+	<classpathentry kind="lib" path="libs/imap.jar"/>
+	<classpathentry kind="lib" path="libs/mailapi.jar"/>
+	<classpathentry kind="lib" path="libs/pop3.jar"/>
+	<classpathentry kind="lib" path="libs/SMSLib.jar"/>
+	<classpathentry kind="lib" path="libs/smtp.jar"/>
+	<classpathentry kind="lib" path="libs/jcommon-1.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/jfreechart.jar"/>
+	<classpathentry kind="lib" path="libs/junit.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

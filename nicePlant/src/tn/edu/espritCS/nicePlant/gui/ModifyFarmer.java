@@ -103,9 +103,18 @@ public class ModifyFarmer extends JFrame {
 		JButton btnModify = new JButton("Modify");
 		btnModify.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Farmer farmer=new Farmer(name.getText(),last.getText(),login.getText(),pwd.getText(),mail.getText());
-				FarmerDao farmerDao=new FarmerDao();
-				farmerDao.updateFarmer(farmer);
+				ListFarmerService listefarmerService=new ListFarmerService();
+				Farmer farmer=listefarmerService.getRow(ListFarmer.dah);
+				farmer.setFirstName(name.getText());
+				   farmer.setLastName(last.getText());
+				   farmer.setLogin(login.getText());
+				   farmer.setMail(mail.getText());
+				   farmer.setPassword(pwd.getText());
+				   FarmerDao farmerDao=new FarmerDao();
+				   farmerDao.updateFarmer(farmer);
+				   AdminInterface adminInterface=new AdminInterface();
+					adminInterface.setVisible(true);
+				
 			}
 		});
 		btnModify.setBounds(25, 191, 89, 23);

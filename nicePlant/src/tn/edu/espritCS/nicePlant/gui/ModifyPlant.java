@@ -72,10 +72,15 @@ public class ModifyPlant extends JFrame {
 		JButton btnModify = new JButton("Modify");
 		btnModify.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ListePlantService listePlantService=new ListePlantService();
+				Plant plant=listePlantService.getRow(ListPlant.dah);
 				String s = (String) sai.getSelectedItem();
-				Plant plant = new Plant(nom.getText(), s);
+				plant.setName(nom.getText());
+				plant.setSaison(s);
 				PlantDao plantDao=new PlantDao();
 				plantDao.updatePlant(plant);
+				AdminInterface adminInterface=new AdminInterface();
+				adminInterface.setVisible(true);
 				
 			}
 		});

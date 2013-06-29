@@ -103,6 +103,8 @@ public class NewFarmer extends JFrame {
 				Farmer farmer=new Farmer(name.getText(),last.getText(),login.getText(),pwd.getText(),mail.getText());
 				FarmerDao farmerDao=new FarmerDao();
 				farmerDao.addFarmer(farmer);
+				AdminInterface adminInterface=new AdminInterface();
+				adminInterface.setVisible(true);
 				
 			}
 		});

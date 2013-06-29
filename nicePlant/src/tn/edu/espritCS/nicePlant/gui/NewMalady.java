@@ -99,6 +99,8 @@ public class NewMalady extends JFrame {
 				Malady malady=new Malady(name.getText(),tige.getText(),feuille.getText(),fleur.getText(),solution.getText());
 				MaladyDao maladyDao=new MaladyDao();
 				maladyDao.addMalady(malady);
+				AdminInterface adminInterface=new AdminInterface();
+				adminInterface.setVisible(true);
 			}
 		});
 		btnAdd.setBounds(43, 204, 89, 23);

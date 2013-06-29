@@ -78,6 +78,8 @@ public class AffectEvent extends JFrame {
 				AffectEventService affectEventService = new AffectEventService();
 				affectEventService.affectEvent(id_event, ListPlant.dah,
 						period.getText());
+				AdminInterface adminInterface=new AdminInterface();
+				adminInterface.setVisible(true);
 			}
 		});
 		btnAffect.setBounds(10, 181, 89, 23);

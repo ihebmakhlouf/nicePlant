@@ -20,6 +20,7 @@ import tn.edu.espritCS.nicePlant.services.ListMaladyService;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class ListMalady extends JFrame {
 
@@ -54,19 +55,24 @@ public class ListMalady extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null},
-			},
-			new String[] {
-				"id", "Malady Name", "Tige", "feuille", "flower"
-			}
-		));
-		table.setBounds(10, 11, 414, 152);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 85, 330, 81);
+		contentPane.add(scrollPane);
+		
+				table = new JTable();
+				scrollPane.setViewportView(table);
+				table.setModel(new DefaultTableModel(
+					new Object[][] {
+						{null, null, null, null, null},
+					},
+					new String[] {
+						"id", "Malady Name", "Tige", "feuille", "flower"
+					}
+				));
+		table.getColumnModel().getColumn(0).setMinWidth(0);
+		table.getColumnModel().getColumn(0).setMaxWidth(0);
+		table.getColumnModel().getColumn(0).setWidth(0);
 		liste_malady();
-		contentPane.add(table);
 		
 		JButton btnRemove = new JButton("Remove");
 		btnRemove.addActionListener(new ActionListener() {
@@ -99,9 +105,8 @@ public class ListMalady extends JFrame {
 		});
 		btnModfiy.setBounds(44, 198, 89, 23);
 		contentPane.add(btnModfiy);
-		table.getColumnModel().getColumn(0).setMinWidth(0);
-		table.getColumnModel().getColumn(0).setMaxWidth(0);
-		table.getColumnModel().getColumn(0).setWidth(0);
+		
+		
 	}
 
 	void liste_malady() {
